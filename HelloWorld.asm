@@ -1,13 +1,14 @@
 .intel_syntax noprefix
 
 .section data
-    hello:      .asciz "Hello world!\n"
+    hello:      .ascii "Hello world!\n"
     .equ helloLen, $-hello
 
 .section text
-.global main
+.global _start
+.type _start, @function
 
-main:
+_start:
     mov rax, 1
     mov rdi, 1
     mov rsi, hello
