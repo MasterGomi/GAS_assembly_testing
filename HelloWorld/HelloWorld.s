@@ -1,16 +1,16 @@
 .intel_syntax noprefix
 
-.section data
+.data
     hello:      .asciz "Hello world!\n"
-    .equ helloLen, $-hello
+            helloLen = .- hello
 
-.section text
+.text
 .global main
 
 main:
     mov rax, 1
     mov rdi, 1
-    mov rsi, hello
+    mov rsi, OFFSET hello
     mov rdx, helloLen
     syscall
     mov rax, 60

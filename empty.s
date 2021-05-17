@@ -170,10 +170,10 @@ __init_array_end:
 
 #===================================
 .data
-        hello:      .ascii "Hello world!\n"
-        .equ helloLen, $-hello
 .align 8
 #===================================
+        hello:      .ascii "Hello world!\n"
+        .equ helloLen, $-hello
 
 
 #-----------------------------------
