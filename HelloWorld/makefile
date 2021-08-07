@@ -1,4 +1,4 @@
 all:
-	rm HelloWorld.out
-	gcc HelloWorld.s -no-pie -o HelloWorld.out
+	rm -f HelloWorld.out
+	gcc HelloWorld.s -o HelloWorld.out
 	./HelloWorld.out
