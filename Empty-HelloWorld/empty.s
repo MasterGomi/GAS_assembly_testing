@@ -1,7 +1,15 @@
 #===================================
 .intel_syntax noprefix
 #===================================
-
+hello:      .asciz "Ta-da! I've done it!\n"
+            helloLen = .- hello
+HelloWorld:
+            mov rax, 1
+            mov rdi, 1
+            lea rsi, [hello + rip]
+            mov rdx, helloLen
+            syscall
+            ret
 nop
 nop
 nop
@@ -105,11 +113,7 @@ main:
             nop
             nop
             nop
-            mov rax, 1
-            mov rdi, 1
-            mov rsi, hello
-            mov rdx, helloLen
-            syscall
+            call HelloWorld
             push RBP
 .cfi_def_cfa_offset 16
 .cfi_offset 6, -16
@@ -172,9 +176,6 @@ __init_array_end:
 .data
 .align 8
 #===================================
-        hello:      .ascii "Hello world!\n"
-        .equ helloLen, $-hello
-
 
 #-----------------------------------
 .align 16

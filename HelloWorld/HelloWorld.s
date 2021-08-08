@@ -1,16 +1,14 @@
 .intel_syntax noprefix
 
-.data
+.text
     hello:      .asciz "Hello world!\n"
             helloLen = .- hello
 
-.text
 .global main
-
 main:
     mov rax, 1
     mov rdi, 1
-    mov rsi, OFFSET hello
+    lea rsi, [hello + rip]
     mov rdx, helloLen
     syscall
     mov rax, 60
